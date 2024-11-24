@@ -3,6 +3,7 @@ import Link from "next/link";
 import ROUTES from "@/constants/routes";
 import LocalSearch from "@/components/search/LocalSearch";
 import HomeFilters from "@/components/filters/HomeFilters";
+import QuestionCard from "@/components/cards/QuestionCard";
 
 const questions = [
     {
@@ -12,7 +13,7 @@ const questions = [
             {_id: "1", name: "React"},
             {_id: "2", name: "Javascript"},
         ],
-        author: {_id: "1", name: "John Doe"},
+        author: {_id: "1", name: "John Doe", image:"https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg"},
         upvotes: 10,
         answers: 5,
         views: 100,
@@ -25,7 +26,7 @@ const questions = [
             {_id: "1", name: "Javascript"},
             {_id: "2", name: "React"},
         ],
-        author: {_id: "1", name: "John Doe"},
+        author: {_id: "1", name: "John Doe", image:"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"},
         upvotes: 10,
         answers: 5,
         views: 100,
@@ -74,7 +75,7 @@ const Home = async ({searchParams}: SearchParams) => {
             <HomeFilters/>
             <div className="mt-10 flex w-full flex-col gap-6">
                 {filteredQuestions.map((question) => (
-                    <h1 key={question._id}>{question.title}</h1>
+                    <QuestionCard key={question._id} question={question}/>
                 ))}
             </div>
         </>
